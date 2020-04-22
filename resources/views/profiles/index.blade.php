@@ -39,17 +39,22 @@
     <hr style="margin-top:30px;">
     
 
-    <div class="container-fluid"></div>    
+    <div class="container-fluid">    
+    
     <div class="grid">
         <div class="grid-sizer"></div>
-        @foreach($user->posts as $post)
-            <div class="grid-item">
-                <a href="/p/{{$post->id}}">
-                    <img src="/storage/{{ $post->image }}">
-                </a>
-            </div>
-        @endforeach 
+            @foreach($user->posts as $post)
+                <div class="grid-item">
+                    <a href="/p/{{$post->id}}">
+                        <img id="myImg" src="/storage/{{ $post->image }}">        
+                    </a>
+                </div>
+            @endforeach 
+        </div>
     </div>
+
+                            
+
 
 @endsection
         <main>

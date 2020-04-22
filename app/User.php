@@ -29,6 +29,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $dates = [
+        'created_at'
+    ];
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -68,4 +72,5 @@ class User extends Authenticatable
     public function isAdmin(){
         return ($this->admin == 1);
     }
+
 }

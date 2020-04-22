@@ -11,10 +11,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth', ['except' => ['login']]);
-    }
 
     /**
      * Show the application dashboard.
@@ -23,12 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
-    }
-
-    public function alluser()
-    {
-        return view('admin.allusers');
+        // 
     }
 
 }

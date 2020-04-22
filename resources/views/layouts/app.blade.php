@@ -24,6 +24,7 @@
     <link href="{{ asset('css/masonary.css') }}" rel="stylesheet"> 
     <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet"> 
     <link href="{{ asset('css/image.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/viewimage.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -96,6 +97,8 @@
 
 </body>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/404c3fa7f3.js" crossorigin="anonymous"></script>  
+    </script>
 </html>
 

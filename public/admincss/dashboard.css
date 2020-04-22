@@ -1,0 +1,80 @@
+.texts{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.col1, .col2, .col3, .col4 {
+    padding:0px;
+    margin: 0px;
+}
+
+.col1, .col2, .col3, .col4 {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.text{
+    font-size: 50px;
+}
+
+.col1{
+    background-color: #009BD9;
+}
+
+.low-link1{
+    padding: 2px 2px;
+    background-color: #0089BF;
+    margin-top: 40px;
+}
+
+.low-link1:hover{  
+    background-color: #0077A6;
+}
+
+.opencart{
+    font-size: 50px;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.col2{
+    background-color: #BF1616;
+    opacity: 0.9;
+}
+
+.low-link2{
+    padding: 2px 2px;
+    background-color: #790000;
+    margin-top: 40px;
+}
+
+.low-link2:hover{
+    background-color: #600000;
+}
+
+.col3{
+    background-color: #F2D22E;
+}
+
+.low-link3{
+    padding: 2px 2px;
+    background-color: #F2B90F;
+    margin-top: 40px;
+}
+
+.low-link3:hover{
+    background-color: #D98E04;
+}
+
+.wink{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.col4{
+    background-color: #0455BF;
+}
+
+.col4:hover{
+    background-color: #033E8C;
+}
