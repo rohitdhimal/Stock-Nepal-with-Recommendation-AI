@@ -5,8 +5,8 @@
     
     <div class="container mr-5 ">
     
-        <div class="text-center ml-5 mt-5 sha">
-            <span class="texts shadow p-3">Admin Dashboard  <i class="far fa-user"></i></span> 
+        <div class="text-center ml-5 mt-3 sha">
+            <span class="texts shadow p-3"> Admin Dashboard <i class="far fa-user"></i></span> 
         </div>
 
         <div class="row main-row mt-5">

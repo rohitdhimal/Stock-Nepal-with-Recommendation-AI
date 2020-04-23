@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Profile')
 
 @section('content')  
 
@@ -36,6 +37,7 @@
                 {{ session('message') }}
             </div>
         @endif
+        
     <hr style="margin-top:30px;">
     
 
@@ -45,17 +47,17 @@
         <div class="grid-sizer"></div>
             @foreach($user->posts as $post)
                 <div class="grid-item">
+
                     <a href="/p/{{$post->id}}">
                         <img id="myImg" src="/storage/{{ $post->image }}">        
                     </a>
+
                 </div>
             @endforeach 
         </div>
     </div>
 
-                            
-
-
+        
 @endsection
         <main>
             @yield('masonaryImage')

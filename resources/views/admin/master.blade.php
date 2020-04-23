@@ -19,6 +19,7 @@
 </head>
 <body>
 
+    
     <div class="sidenav">
         <p class="disabled text-light top-welcome text-decoration-none text-center" > <i class="fas fa-user-secret"></i> Welcome Admin <br> <i class="fas fa-circle text-success"></i> <span class="text-light online">Online</span> </p>
         <button class="dropdown-btn"> <i class="fas fa-users-cog"></i> Admin 
@@ -59,10 +60,9 @@
         </div>
 
         <a href="#" class="text-decoration-none"> <i class="fas fa-shopping-cart"></i> Purchase</a>
-    </div>
+     </div> -->
 
     
-
     <script>
 
         var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -81,12 +81,13 @@
                 }
             });
         }
-    </script>
+    </script> 
 
     
             <main>
                 @yield('admincontent')
             </main>
     </body>
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js" crossorigin="anonymous"></script>
 </html>

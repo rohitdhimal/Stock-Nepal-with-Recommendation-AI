@@ -1,14 +1,14 @@
-#cont{
-    background-image:url(../image/regimage.png);
+#cont {
+    background-image: url(../image/regimage.png);
     background-size: cover;
     opacity: 0.8;
 }
 
-.tab{
+.tab {
     display: none;
 }
 
-.step{
+.step {
     height: 15px;
     width: 15px;
     margin: 0 2px;
@@ -17,14 +17,14 @@
     border-radius: 50%;
     display: inline-block;
     opacity: 0.5;
-  }
-  
-  /* Mark the active step: */
-  .step.active {
+}
+
+/* Mark the active step: */
+.step.active {
     opacity: 1;
-  }
-  
-  /* Mark the steps that are finished and valid: */
-  .step.finish {
-    background-color: #4CAF50;
-  }
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4caf50;
+}

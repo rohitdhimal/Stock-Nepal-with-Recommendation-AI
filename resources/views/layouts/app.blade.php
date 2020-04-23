@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/registerimage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/masonary.css') }}" rel="stylesheet"> 
     <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet"> 
@@ -31,6 +32,11 @@
 
 </head>
 <body>
+
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
@@ -98,6 +104,12 @@
 </body>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
+    <script>
+        setTimeout(function(){
+            $('.loader_bg').fadeToggle();
+        },1000);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/404c3fa7f3.js" crossorigin="anonymous"></script>  
     </script>
 </html>

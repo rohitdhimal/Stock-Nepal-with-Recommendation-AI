@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-*{
-    background-color: #FCFCFC;
-}
-</style>
 
     <div class="wrapper">
         <img class="img-class" src="https://images.pexels.com/photos/2085998/pexels-photo-2085998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">  
@@ -14,9 +9,12 @@
                         <h3 class="col-sm-8 text-left text-light">The Best Stock Photos</h3>
                         <h3 class="col-sm-8 text-left text-light">Shared by talented creators</h3>
                     </div>
-                    <div class="row justify-content-center">
-                        <input class="col-8 pt-4 pb-4 form-control" type="text" placeholder="Search" aria-label="Search">
-                    </div>
+                    <form action="/search" method="POST">
+                        @csrf
+                        <div class="row justify-content-center">
+                            <input class="col-8 pt-4 pb-4 form-control" type="text" name="search" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
             </div>   
     </div>
 @Auth
@@ -41,5 +39,6 @@
         @endforeach
     </div>
 @endauth
+
 
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -59,15 +60,25 @@ class PostsController extends Controller
         return view('posts.show',compact('post'));
     }
 
+    // Deleting a post from user profile
+
     public function delete(Post $post)
     {
         $post->delete();
         return redirect(route('profile.show',auth()->user()->id));
     }
 
+    // Downloading a photo
+
     public function download($id){
         $post = Post::find($id);
         return Storage::download($post->path, $post->id);
     }
+
+    // Searching in Home Page
+
+    
+
+
 
 }
