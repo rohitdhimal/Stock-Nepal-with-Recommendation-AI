@@ -18,7 +18,7 @@
 
                 <div class="form-group row">
                     <label for="phoneno" class="my-1 mr-2 font-weight-bold" for="inlineFormCustomSelectPref">Phone no</label>
-                    <input type="text" name="phoneno" value="{{old('phoneno') ?? $user->profile->phoneno}}" placeholder="+977-9807008094" class="form-control @error('phoneno') is-invalid @enderror" id="phoneno" required autocomplete="phoneno" autofocus>
+                    <input type="text" name="phoneno" value="{{old('phoneno') ?? $user->profile->phoneno}}" placeholder="+977-98888888" class="form-control @error('phoneno') is-invalid @enderror" id="phoneno" required autocomplete="phoneno" autofocus>
                         @error('phoneno')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

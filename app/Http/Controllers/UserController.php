@@ -95,8 +95,8 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $users = DB::table('users')->where('fname','like', '%'.$search.'%')->get();
-        $posts = DB::table('posts')->where('category','like', '%'.$search.'%')-> orwhere('caption','like', '%'.$search.'%')->get();
+        $users = DB::table('users')->where('fname','like', '%'.$search.'%')->orwhere('lname','like', '%'.$search.'%')->get();
+        $posts = DB::table('posts')->where('category','like', '%'.$search.'%')->orwhere('caption','like', '%'.$search.'%')->get();
         return view('user.searchresults', compact('posts','users'));
     }
 }

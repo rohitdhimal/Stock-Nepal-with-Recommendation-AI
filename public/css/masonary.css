@@ -30,34 +30,34 @@
     box-sizing: border-box;
 }
 
-.grid:after {
+.gride:after {
     content: "";
     display: block;
     clear: both;
 }
 
-.grid-sizer,
-.grid-item {
+.grid-sizers,
+.grid-items {
     width: 33.333%;
 }
 @media (max-width: 575px) {
-    .grid-sizer,
-    .grid-item {
+    .grid-sizers,
+    .grid-items {
         width: 100%;
     }
 }
 @media (min-width: 576px) and (max-width: 767px) {
-    .grid-sizer,
-    .grid-item {
+    .grid-sizers,
+    .grid-items {
         width: 50%;
     }
 }
 
-.grid-item {
+.grid-items {
     float: left;
 }
 
-.grid-item img {
+.grid-items img {
     display: block;
     max-width: 100%;
     max-width: 100%;

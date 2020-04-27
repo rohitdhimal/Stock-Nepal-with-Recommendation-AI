@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@section('title','Profile')
 
 @section('content')  
 
@@ -43,10 +42,10 @@
 
     <div class="container-fluid">    
     
-    <div class="grid">
-        <div class="grid-sizer"></div>
+    <div class="gride">
+        <div class="grid-sizers"></div>
             @foreach($user->posts as $post)
-                <div class="grid-item">
+                <div class="grid-items">
 
                     <a href="/p/{{$post->id}}">
                         <img id="myImg" src="/storage/{{ $post->image }}">        

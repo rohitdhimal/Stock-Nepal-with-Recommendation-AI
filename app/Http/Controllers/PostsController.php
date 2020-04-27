@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -75,9 +74,6 @@ class PostsController extends Controller
         return Storage::download($post->path, $post->id);
     }
 
-    // Searching in Home Page
-
-    
 
 
 

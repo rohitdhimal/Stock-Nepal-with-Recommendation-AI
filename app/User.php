@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Notifications\Notifiable;
 use App\Profile;
+use App\Post;
 class User extends Authenticatable
 {
     use Notifiable;

@@ -68,9 +68,9 @@ class ProfilesController extends Controller
             $imageArray = ['image' => $imagePath];
            }
         //    dd($data);
-           auth()->user()->profile->update(array_merge(
-            $data,
-            $imageArray ?? []
+            auth()->user()->profile->update(array_merge(
+                $data,
+                $imageArray ?? []
            ) );
         
         return redirect("/profile/{$user->id}");
