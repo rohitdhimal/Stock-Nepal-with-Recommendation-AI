@@ -5,16 +5,23 @@
 
     <div class="container">
     <div class="row justify-content-center">
-    <div class="col-md-6 mt-5">
+
+
+    <div class="col-md-10 mt-5">
+
     <div class="card shadow">
-    <div class="card-header text-center font-weight-bold">Update Profile</div>
+    <div class="card-header text-center font-weight-bold bg-dark text-light">Update Profile</div>
     <div class="card-body">
     <form action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="post" class="md-form">
         @csrf    
         @method('PATCH')
 
         <div class="row">
-            <div class="mt-2 col-10 offset-1">
+            <div class="col-md-6">
+                <img src="/image/464.png" alt="">
+            </div>
+
+            <div class="mt-2 col-5 offset-1">
 
                 <div class="form-group row">
                     <label for="phoneno" class="my-1 mr-2 font-weight-bold" for="inlineFormCustomSelectPref">Phone no</label>

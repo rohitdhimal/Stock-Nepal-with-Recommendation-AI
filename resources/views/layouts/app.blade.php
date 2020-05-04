@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', 'Stock Nepal')</title>
 
     <!-- Scripts -->
    
@@ -27,6 +27,7 @@
     <link href="{{ asset('css/bootstrap-tagsinput.css') }}" rel="stylesheet"> 
     <link href="{{ asset('css/image.css') }}" rel="stylesheet">
     <link href="{{ asset('css/viewimage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/parallax.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -54,8 +55,8 @@
                     <ul class="navbar-nav mr-auto">
                     <div class="navbar-nav">
                     <a href="#" class="nav-link text-white">Explore</a>
-                    <a href="#" class="nav-link text-white">Lisence</a>
-                    <a href="#" class="nav-link text-white">About US</a>
+                    <a href="{{url('/lisence')}}" class="nav-link text-white">Lisence</a>
+                    <a href="{{url('/About-Us')}}" class="nav-link text-white">About</a>
                 </div>
                     </ul>
 
@@ -109,9 +110,27 @@
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
         },1000);
-    </script>
+
+            // Gallery
+        $(function() {
+        var selectedClass = "";
+        $(".filter").click(function(){
+        selectedClass = $(this).attr("data-rel");
+        $("#gallery").fadeTo(100, 0.1);
+        $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
+        setTimeout(function() {
+        $("."+selectedClass).fadeIn().addClass('animation');
+        $("#gallery").fadeTo(300, 1);
+        }, 300);
+        });
+        });
+            </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/404c3fa7f3.js" crossorigin="anonymous"></script>  
-    </script>
+    <!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+    
+    
+
+
 </html>
 

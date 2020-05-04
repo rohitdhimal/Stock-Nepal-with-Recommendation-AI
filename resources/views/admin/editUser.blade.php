@@ -46,36 +46,6 @@
                         @enderror
                 </div>
 
-                <div class="form-group row">
-                    <label for="address" class="my-1 mr-2 font-weight-bold" for="inlineFormCustomSelectPref">Image address</label>
-                    <input type="text" name="address" value="{{old('address') ?? $users->profile->address}}" placeholder=" Address " class="form-control @error('address') is-invalid @enderror" id="address" required autocomplete="address" autofocus>
-                        @error('address')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-
-                <div class="form-group row">
-                    <label for="phoneno" class="my-1 mr-2 font-weight-bold" for="inlineFormCustomSelectPref">phoneno</label>
-                    <input type="text" name="phoneno" value="{{old('phoneno') ?? $users->profile->phoneno}}" placeholder=" phoneno Here" class="form-control @error('phoneno') is-invalid @enderror" id="phoneno" required autocomplete="phoneno" autofocus>
-                        @error('phoneno')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-
-                <div class="form-group row">
-                    <label for="gender" class="my-1 mr-2 font-weight-bold" for="inlineFormCustomSelectPref"> gender</label>
-                    <input type="text" name="gender" value="{{old('gender') ?? $users->profile->gender}}" placeholder="gender " class="form-control @error('gender') is-invalid @enderror" id="gender" required autocomplete="gender" autofocus>
-                        @error('gender')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-
                 <div class="row pt-3">
                     <button class="btn btn-primary btn-lg btn-block" type="submit">Update User Info</button>
                 </div>

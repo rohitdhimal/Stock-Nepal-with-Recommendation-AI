@@ -14,14 +14,19 @@
 <body>
     <div class="container">
     <div class="row justify-content-center">
-    <div class="col-md-6 mt-5">
+    <div class="col-md-10 mt-5">
     <div class="card shadow">
-    <div class="card-header text-center font-weight-bold">Add New Post</div>
+    <div class="card-header text-center font-weight-bold bg-dark text-light">Add New Post</div>
     <div class="card-body">
     <form action="/p" enctype="multipart/form-data" method="post" class="md-form">
         @csrf
         <div class="row">
-            <div class="mt-2 col-10 offset-1">
+
+        <div class="col-md-5">
+                <img src="/image/watermark11.png" class="w-100 mt-3 ml-3" alt="">
+            </div>
+
+            <div class="mt-2 col-5 offset-1">
 
                 <div class="form-group row">
                     <label for="caption" class="my-1 mr-2 font-weight-bold" for="inlineFormCustomSelectPref">Image Caption</label>

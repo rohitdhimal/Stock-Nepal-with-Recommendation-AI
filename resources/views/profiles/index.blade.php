@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Profile')
 
 @section('content')  
 
@@ -41,20 +42,32 @@
     
 
     <div class="container-fluid">    
-    
-    <div class="gride">
-        <div class="grid-sizers"></div>
-            @foreach($user->posts as $post)
-                <div class="grid-items">
 
-                    <a href="/p/{{$post->id}}">
-                        <img id="myImg" src="/storage/{{ $post->image }}">        
-                    </a>
 
-                </div>
-            @endforeach 
-        </div>
+    <div class="row">
+
+  
+
+</div>
+<!-- Grid row -->
+
+<!-- Grid row -->
+<div class="gallery" id="gallery">
+
+  <!-- Grid column -->
+     @foreach($user->posts as $post)
+    <div class="mb-3 pics animation all 2">
+        <a href="/p/{{$post->id}}">
+            <img class="img-fluid" src="/storage/{{ $post->image }}" alt="Card image cap">
+        </a>
+
     </div>
+    @endforeach
+
+  <!-- Grid column -->
+
+
+</div>
 
         
 @endsection

@@ -3,11 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+        <div class="col-md-10">
+            <div class="card bg-d mt-5 shadow">
+                <div class="card-header bg-dark shadow text-light text-center">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
+
+                 <div class="row">
+                    <div class="col-md-3 ml-5">
+                            <img src="/image/key.jpg" class="w-100 ml-5" alt="">
+                    </div>
+
+                    <div class="col-md-7 mt-5">
+                        <h1  class="text-center text-info">Forget Password?</h1>
+                            <hr>
+                            <p class="text-center text-muted"> Enter the following to rest your password</p>
+                            <br>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -34,11 +45,12 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('Send Reset Link') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>

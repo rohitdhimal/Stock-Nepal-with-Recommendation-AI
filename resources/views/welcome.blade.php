@@ -12,7 +12,12 @@
                     <form action="/search" method="POST">
                         @csrf
                         <div class="row justify-content-center">
-                            <input class="col-8 pt-4 pb-4 form-control" type="text" name="search" placeholder="Search" aria-label="Search">
+                            <input class="col-8 pt-4 pb-4 form-control @error('search') is-invalid @enderror" type="text" name="search" placeholder="Search" aria-label="Search">
+                                @error('search')
+                                    <span class="invalid-feedback text-center" role="alert">
+                                        <strong class="text-center  text-light">{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                     </form>
             </div>   
@@ -27,9 +32,9 @@
                         <div class="card-body justify-content-center">
                            <span class="text-center text-muted">{{ $post->caption }} </span> 
                             <span>by</span>
-                            <span class="font-weight-bold">  
-                                <a href="/profile/{{ $post->user->id }}">
-                                    <span class="text-dark text-uppercase text-none text-decoration-none ml-3"> {{ $post->user->fname }} {{ $post->user->lname }}</span>
+                            <span class="font-weight-bold">
+                                <a href="/profile/{{ $post->user_id }}">
+                                    <span class="text-dark text-uppercase text-none text-decoration-none ml-3"> {{ $post->user->fname }} {{ $post->user->lname }} </span>
                                 </a>
                             </span>
                         </div>

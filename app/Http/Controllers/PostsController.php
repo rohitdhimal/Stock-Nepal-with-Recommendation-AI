@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -30,6 +31,7 @@ class PostsController extends Controller
     public function create()
     {
         return view('posts.create');
+
     }
 
     public function store()
@@ -54,8 +56,10 @@ class PostsController extends Controller
         return redirect('/profile/' . auth()->user()->id)->with('message','Image uploaded successfully');
     }
 
-    public function show(\App\Post $post)
+    public function show(Post $post)
     {
+        
+        // return $post;
         return view('posts.show',compact('post'));
     }
 

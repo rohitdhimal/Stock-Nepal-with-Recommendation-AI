@@ -82,7 +82,7 @@
     --warning: #ffed4a;
     --danger: #e3342f;
     --light: #f8f9fa;
-    --dark: #181818;
+    --dark: #0d1d26;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -125,7 +125,7 @@ body {
     font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.6;
-    color: #181818;
+    color: #0d1d26;
     text-align: left;
     background-color: #f8fafc;
 }

@@ -1,0 +1,34 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.parallax {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    width: 100%;
+    height: 100vh;
+}
+
+.pah2 {
+    font-size: 60px;
+    padding: 8px 24px;
+    border-radius: 16px;
+}
+
+.parallax:nth-child(1) {
+    background-image: url(../image/pexels.jpeg);
+    height: 600px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.parallax:nth-child(2) {
+    background: linear-gradient(
+        rgba(29, 38, 113, 0.8),
+        rgba(195, 55, 100, 0.8)
+    );
+}

@@ -13,12 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+//     !*!*!  Users Route !*!*!
+
 Route::get('/', function () {
     return view('welcome')->name('welcome');
 });
 
-Auth::routes();
-//     !*!*!  Users Route !*!*!
+Auth::routes(['verify'=>true]);
+
+// Email Verification and Password reset
+
 // Followers route
 Route::post('follow/{user}', 'FollowsController@store');
 
@@ -38,8 +44,14 @@ Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.upda
 // Search Controller Home Page
 Route::post('/search', 'UserController@search');
 
-//Admin
+// AboutUs & Lisence Page
+Route::get('/About-Us', 'UserController@about');
+Route::get('/lisence', 'UserController@lisence');
 
+
+
+
+//Admin
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function ()
 {

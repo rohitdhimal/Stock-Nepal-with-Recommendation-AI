@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('caption');
             $table->string('category');
             $table->string('image');
+            $table->string('exif')->nullable();
+            $table->string('camera')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

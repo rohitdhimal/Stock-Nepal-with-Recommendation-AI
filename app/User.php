@@ -1,14 +1,14 @@
 <?php
 
 namespace App;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Notifications\Notifiable;
 use App\Profile;
 use App\Post;
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -51,7 +51,7 @@ class User extends Authenticatable
             $user->profile()->create([
                 'address' => $user->username,
             ]);
-        
+
         });
     }
 

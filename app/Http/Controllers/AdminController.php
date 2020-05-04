@@ -161,19 +161,14 @@ class AdminController extends Controller
     public function updateUser(Request $request, $id)
     {
         $updateUsers = User::findOrFail($id);
-        $updateProfile = Profile::findOrFail($id);
         $updateUsers->fname = $request->input('fname');
         $updateUsers->lname = $request->input('lname');
         $updateUsers->email = $request->input('email');
-        $updateProfile->address = $request->input('address');
-        $updateProfile->phoneno = $request->input('phoneno');
-        $updateProfile->gender = $request->input('gender');
+
         $updateUsers->update();
-        $updateProfile->update();
         
         $users = user::all();
-        $profiles = Profile::all();
-        return view('admin.allUsers',compact('users','profiles'));
+        return view('admin.allUsers',compact('users'));
     }
 
 
