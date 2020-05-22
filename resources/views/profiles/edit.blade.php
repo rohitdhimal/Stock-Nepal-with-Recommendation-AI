@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
 
 
-    <div class="col-md-10 mt-5">
+    <div class="col-md-10 mt-2">
 
     <div class="card shadow">
     <div class="card-header text-center font-weight-bold bg-dark text-light">Update Profile</div>

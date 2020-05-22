@@ -12,7 +12,7 @@
                     <form action="/search" method="POST">
                         @csrf
                         <div class="row justify-content-center">
-                            <input class="col-8 pt-4 pb-4 form-control @error('search') is-invalid @enderror" type="text" name="search" placeholder="Search" aria-label="Search">
+                            <input class="col-8 pt-4 pb-4 form-control @error('search') is-invalid @enderror" pattern=".{4,}" required title="4 characters minimum" type="text" class="search" id="filter" name="search" placeholder="Search" aria-label="Search">
                                 @error('search')
                                     <span class="invalid-feedback text-center" role="alert">
                                         <strong class="text-center  text-light">{{ $message }}</strong>

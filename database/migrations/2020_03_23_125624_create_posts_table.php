@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('caption');
             $table->string('category');
+            $table->decimal('price')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->string('image');
             $table->string('exif')->nullable();
             $table->string('camera')->nullable();

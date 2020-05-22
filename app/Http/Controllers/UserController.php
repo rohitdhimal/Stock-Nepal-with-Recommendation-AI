@@ -13,11 +13,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function register()
-    {
-        // return view('User.fregister');
+    // public function register()
+    // {
+    //     // return view('User.fregister');
 
-    }
+    // }
 
     
 
@@ -100,7 +100,7 @@ class UserController extends Controller
         $search = $request->get('search');
         $users = DB::table('users')->where('fname','like', '%'.$search.'%')->orwhere('lname','like', '%'.$search.'%')->get();
         $posts = DB::table('posts')->where('category','like', '%'.$search.'%')->orwhere('caption','like', '%'.$search.'%')->get();
-        return view('user.searchresults', compact('posts','users'));
+        return view('user.searchresults', compact('posts','users','search'));
     }
 
     public function about()

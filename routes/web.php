@@ -36,10 +36,20 @@ Route::get('/p/{post}', 'PostsController@show')->name('profile.delete');
 Route::get('/p/delete/{post}', 'PostsController@delete')->name('post.delete');
 Route::get('/p/download/{id}', 'PostsController@download')->name('download');
 
+// Buy and sell image
+Route::get('/p/sell/{id}', 'PostsController@sellImage')->name('post.sell');
+Route::patch('/p/sellUpdate/{id}', 'PostsController@sellUpdate')->name('post.updateSell');
+Route::get('/p/checkout/{id}', 'PostsController@buyImage')->name('post.buy');
+Route::get('/p/success', 'PostsController@sellSuccess');
+
+// Route::get('/p/sold/{id}', 'PostsController@sold')->name('post.sell');
+
+
 // Profile Controller
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
+Route::get('/profile/{user}/sellList', 'ProfilesController@sellLists')->name('profile.list');
 
 // Search Controller Home Page
 Route::post('/search', 'UserController@search');
@@ -47,6 +57,10 @@ Route::post('/search', 'UserController@search');
 // AboutUs & Lisence Page
 Route::get('/About-Us', 'UserController@about');
 Route::get('/lisence', 'UserController@lisence');
+
+
+
+
 
 
 

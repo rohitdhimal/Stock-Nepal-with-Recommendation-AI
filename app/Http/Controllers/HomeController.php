@@ -11,20 +11,24 @@ class HomeController extends Controller
      *
      * @return void
      */
-
+    
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']); // For Email verification   
+    }
+
     public function index()
     {
         // 
     }
 
-    public function __construct()
-    {
-        $this->middleware(['auth','verified']);
-    }
+
+    
 
 }

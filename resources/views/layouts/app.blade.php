@@ -73,10 +73,15 @@
                                 </li>
                             @endif
                         @else
+                                                        
+
+                        <!-- Start Profile and logout -->
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->fname }} <span class="caret"></span>
                                 </a>
+
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('profile.show',[Auth()->user()->id]) }}"> My profile</a>
@@ -103,9 +108,12 @@
         </main>
     </div>
 
-</body>
+
+
+   
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
+
     <script>
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
@@ -113,24 +121,37 @@
 
             // Gallery
         $(function() {
-        var selectedClass = "";
-        $(".filter").click(function(){
-        selectedClass = $(this).attr("data-rel");
-        $("#gallery").fadeTo(100, 0.1);
-        $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
-        setTimeout(function() {
-        $("."+selectedClass).fadeIn().addClass('animation');
-        $("#gallery").fadeTo(300, 1);
-        }, 300);
+            var selectedClass = "";
+
+            $(".filter").click(function(){
+                selectedClass = $(this).attr("data-rel");
+
+                $("#gallery").fadeTo(100, 0.1);
+                
+                $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
+                    setTimeout(function() 
+                    {
+                        $("."+selectedClass).fadeIn().addClass('animation');
+                        $("#gallery").fadeTo(300, 1);
+                    }, 300);
+            });
         });
-        });
+
+
+        // Search Results
+        
+        
+
             </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/404c3fa7f3.js" crossorigin="anonymous"></script>  
-    <!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
-    
+
+
+
     
 
 
+
+</body>
 </html>
 

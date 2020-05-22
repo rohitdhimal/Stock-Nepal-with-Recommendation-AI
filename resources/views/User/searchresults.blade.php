@@ -15,9 +15,16 @@
 
             <div class="card shadow">
                 <div class="card-header text-center font-weight-bold">Users List</div>
+                @if(count($users)) 
+                
                     @foreach($users as $user)
-                        <span><a href="/profile/{{ $user->id }}" class="text-decoration-none text-center mt-2 text-danger"> <p class="text-uppercase">{{$user->fname}} {{$user->lname}}</p></a></span>
+                        <span><a href="/profile/{{ $user->id }}" class="text-decoration-none text-center mt-2 text-danger "> <p class="text-uppercase ">{{$user->fname}} {{$user->lname}}</p></a></span>
                     @endforeach
+
+                @else
+                    <p class="text-center text-danger">No User's Found</p>    
+   
+                @endif
             </div>
         </div>
 
@@ -28,14 +35,21 @@
             <div class="row">
                 </div>
                     <div class="gallery" id="gallery">
+                    @if(count($posts)) 
                     @foreach($posts as $post)
                     <div class="mb-3 pics animation all 2">
-                        <a href="/p/{{$post->id}}" class="text-decoration-none">
+                        <div id="my-list"></div>
+                        <a href="/p/{{$post->id}}" class="text-decoration-none ">
                             <!-- <p class="text-dark">{{ $post->caption }}</p> -->
                             <img class="img-fluid hobimg" src="/storage/{{ $post->image }}" alt="Card image cap">
                         </a>
                     </div>
                     @endforeach
+                    @else
+
+                    <h3 class="text-center text-danger mt-5">No Images Found</h3>
+                        
+                    @endif
                 </div>
             </div>
         </div>

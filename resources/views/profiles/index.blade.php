@@ -8,7 +8,7 @@
             <div class="col-8">           
             <img src="{{ $user->profile->profileImage() }}" class="rounded-circle offset-md-7 offset-lg-7"> <br>
                 <p class="font-weight-normal text-uppercase text-center mt-2">{{ $user->fname}} {{ $user->lname}}</p> <!-- search concat -->
-                <p class="text-muted text-right"> {{ $postCount }} Posts | {{ $followersCount }} Followers | {{ $followingCount }} Following | <i class="fas fa-map-marker-alt"></i> @isset($user->profile->address){{ $user->profile->address}}
+                <p class="text-muted text-right"> {{ $postCount }} Posts | {{ $followersCount }} Followers | {{ $followingCount }} Following | {{ $sellCount }} listed for selling     | <i class="fas fa-map-marker-alt"></i> @isset($user->profile->address){{ $user->profile->address}}
                 @endisset</p>
             </div>  
             

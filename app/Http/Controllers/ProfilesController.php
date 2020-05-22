@@ -36,7 +36,14 @@ class ProfilesController extends Controller
                 return $user->following->count();
             });
 
-        return view('profiles.index',compact('user',  'follows', 'postCount', 'followersCount', 'followingCount' ));
+        $sellCount = Cache::remember(
+            'count.sell.' . $user->status='1',
+            now()->addSeconds(30),
+            function () use ($user) {
+                return $user->posts->count();
+            });
+
+        return view('profiles.index',compact('user',  'follows', 'postCount', 'followersCount', 'followingCount', 'sellCount' ));
 
     }
     
@@ -75,5 +82,11 @@ class ProfilesController extends Controller
         
         return redirect("/profile/{$user->id}");
 
+    }
+
+    public function sellLists()
+    {
+        $posts = Post::where('status',1)->get();
+        return view('profiles.sellListed',compact('posts'));
     }
 }

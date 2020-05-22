@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('title','Image')
+
 @section('content')
 
         <div class="container mt-3">
 
             <div class="row">
+                <!-- Image -->
                 <div class="col-6">
                     <div class="card card-shadow justify-content-center" style="width: 35rem;">
                         <a href="/storage/{{$post->image}} ">
@@ -12,7 +14,10 @@
                         </a> 
                     </div>
                 </div>
+                <!-- End -->
 
+
+                <!-- Left bar of infos -->
                 <div class="col-6 col1">
                     <div class="info-area">
                         <div class="col-12">
@@ -29,18 +34,25 @@
                             </div>  
                         </div>
                     
-                
                             <br>
                             <br>
-
                             <hr>
                             <br>
 
+                        
+                        <!-- Delete and Download -->
                         <div class="row justify ml-5">
 
+                            <!-- Download -->
+                            <div class="col-5">
+                                <a href="{{asset('storage')}}/{{$post->image}}" download class="btn btn-success"> <i class="fas fa-cloud-download-alt"></i> Download </a>
+                            </div>
+
+
+                            <!-- Delete -->
                             <div class="col-5 ml-5">
-                                @if(Auth()->user()->id==$post->user_id)
-                                    <!-- <a href="{{ route('post.delete',[$post->id])}}"   type="button"  data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger mr-5 text-decoration-none"> Delete Photo </button> -->
+                            
+                                @if(Auth::check() && Auth()->user()->id == $post->user_id)
                                     
                                     <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#exampleModalCenter">
                                         Delete Photo
@@ -67,54 +79,43 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endif
-                                
+                                                        
                             </div>
-    
-                            <div class="col-5">
-                                <a href="{{asset('storage')}}/{{$post->image}}" download class="btn btn-success"> <i class="fas fa-cloud-download-alt"></i> Download </a>
-                            </div>
-                                
-
-                        </div>      
-                    </div>
+                        </div>  
+                        <!-- End -->
 
                     <br>
-
                     <hr>
-
-                    <br>
-
-                    <div class="col-8 justify-items-center ml-5">
-
-                        <div class="card shadow ml-5">
-                            <div class="card-body text-center">
-                                <p class="text-muted text-justify">Buy this image with pro lisence</p>
-                                <a href="" class="btn btn-success ">Buy Now</a>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <!-- <div class="card shadow">
-                        <div class="image-exif">
-                      
-                            <p class="text-center">Exif info</p>
-
+                    
+                        <!-- Buy and Sell -->
+                        <div class="row">
                             
+                            <div class="col-12 ml-5">
+                                <div class="card shadow col-6 ml-5 mt-1">
+                                    <div class="card-body  ">
+                                        <p class="text-muted">Sell Image</p> 
+                                        <a href="{{ route('post.sell',[$post->id]) }}"  class="btn btn-primary text-light ml-5 ">Sell Image</a>
+                                    </div>
 
-                       
+                                </div>   
+                                
+                                @else
 
-
-                        </div> 
-                    </div> -->
-
-                
+                                <div class="card shadow col-6 ml-5">
+                                    <div class="card-body ">
+                                        <p class="text-muted">Buy this image with pro lisence</p> 
+                                        <a href="{{ route('post.buy',[$post->id])}} " class="btn btn-warning text-light ml-5"> Buy Now</a>
+                                    </div>
+                                </div>   
+                        
+                            </div>
+                            <!-- End Buy and Sell -->
+                            @endif
+                        </div>
+                </div>
 
             </div>
-        </div>
 
-
-
+        </div> 
 
 @endsection
