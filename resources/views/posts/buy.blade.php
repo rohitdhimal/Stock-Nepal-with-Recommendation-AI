@@ -33,7 +33,7 @@
                             <p> <b> Price of this Image: </b> ${{$post->price}}</p>
 
                             <div id="paypal-button-container" class="mt-5"></div>
-                        
+                    
                         </div>
 
                     </div>
@@ -52,8 +52,8 @@
 <div class="container mt-3">
     <div class="card shadow">
         <div class="row justify-content-center">
-                <a class="text-danger text-decoration-none font-weight-bold mr-4" href="{{ url('/') }}"> Return Home</a>
-                <a class="text-danger text-decoration-none font-weight-bold" href="/p/{{$post->id}}"> Back to image info </a>
+            <a class="text-danger text-decoration-none font-weight-bold mr-4" href="{{ url('/') }}"> Return Home</a>
+            <a class="text-danger text-decoration-none font-weight-bold" href="/p/{{$post->id}}"> Back to image info </a>
         </div>
     </div>
 </div>

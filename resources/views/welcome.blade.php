@@ -22,7 +22,8 @@
                     </form>
             </div>   
     </div>
-@Auth
+
+    @Auth
     <div class="container">
         @foreach($posts as $post)
         <div class=" mt-5">
@@ -43,7 +44,15 @@
         </div>
         @endforeach
     </div>
-@endauth
+
+    <div class="row">
+            <div class="col-12 d-flex justify-content-center mt-5 mb-2">
+                {{ $posts->links() }}
+            </div>
+        </div>
+    @endauth
+
+
 
 
 @endsection

@@ -10,8 +10,17 @@ use App\Post;
 
 class ProfilesController extends Controller
 {
-    public function index(User $user)
+    
+     
+    public function __construct()
     {
+        $this->middleware(['auth','verified']); // For Email verification   
+    }
+
+    public function index(User $user, Post $post)
+
+    {
+
 
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
@@ -35,14 +44,10 @@ class ProfilesController extends Controller
             function () use ($user) {
                 return $user->following->count();
             });
-
-        $sellCount = Cache::remember(
-            'count.sell.' . $user->status='1',
-            now()->addSeconds(30),
-            function () use ($user) {
-                return $user->posts->count();
-            });
-
+            
+        $posts =Post::where('status',1)->where('user_id',$user->id)->get();
+        $sellCount = count($posts);
+            
         return view('profiles.index',compact('user',  'follows', 'postCount', 'followersCount', 'followingCount', 'sellCount' ));
 
     }
@@ -70,7 +75,7 @@ class ProfilesController extends Controller
         if (request('image')){
             $imagePath = request('image')->store('profile','public');
     
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
+            $image = Image::make(public_path("storage/{$imagePath}"));
             $image->save();
             $imageArray = ['image' => $imagePath];
            }

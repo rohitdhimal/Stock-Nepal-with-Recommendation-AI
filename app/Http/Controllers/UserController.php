@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 { 
@@ -30,7 +32,6 @@ class UserController extends Controller
     {
         //
         // return  view(User.fregister);
-        
         
     }
 
@@ -101,6 +102,12 @@ class UserController extends Controller
         $users = DB::table('users')->where('fname','like', '%'.$search.'%')->orwhere('lname','like', '%'.$search.'%')->get();
         $posts = DB::table('posts')->where('category','like', '%'.$search.'%')->orwhere('caption','like', '%'.$search.'%')->get();
         return view('user.searchresults', compact('posts','users','search'));
+    }
+
+    public function explore(Post $post)
+    {
+        $post = Post::latest()->get();
+        return view('User.explore', compact('post'));
     }
 
     public function about()

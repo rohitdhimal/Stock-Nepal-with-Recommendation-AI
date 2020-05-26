@@ -54,7 +54,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     <div class="navbar-nav">
-                    <a href="#" class="nav-link text-white">Explore</a>
+                    <a href="{{url('/Explore')}}" class="nav-link text-white">Explore</a>
                     <a href="{{url('/lisence')}}" class="nav-link text-white">Lisence</a>
                     <a href="{{url('/About-Us')}}" class="nav-link text-white">About</a>
                 </div>

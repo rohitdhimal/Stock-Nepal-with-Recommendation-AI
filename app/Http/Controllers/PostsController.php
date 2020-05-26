@@ -8,27 +8,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Redirect;
+use Srmklive\PayPal\Services\ExpressCheckout;
 
 
 class PostsController extends Controller
 {
       
-
     public function index()
     {
         if(auth()->user()!=null){
-        $users = auth()->user()->following()->pluck('profiles.user_id');
+            
+            $users = auth()->user()->following()->pluck('profiles.user_id');
 
-        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+            $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
 
-        return view('welcome', compact('posts'));
+            return view('welcome', compact('posts'));
+        }
+
+        else{
+            return view('welcome');
+        }
     }
-
-    else{
-        return view('welcome');
-
-    }
-}
 
     public function create()
     {
@@ -42,12 +42,18 @@ class PostsController extends Controller
             'category' => 'required',
             'image' => ['required', 'image'],
         ]);
-
-        $imagePath = request('image')->store('uploads','public');
-
-        $image = Image::make(public_path("storage/{$imagePath}"));
-        $image->save();
         
+        $imagePath = request('image')->store('uploads','public');
+        $imagePath2 = request('image')->store('upload','public');
+        
+        $image = Image::make(public_path("storage/{$imagePath}"));
+        $image2 = Image::make(public_path("storage/{$imagePath}"));
+        
+        // $image->insert(public_path('profile/outline.png'));
+
+        $image->save();
+        $image2->save();
+
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'category' => $data['category'],
@@ -103,12 +109,6 @@ class PostsController extends Controller
     {
         return view('posts.success');
     }
-
-    // public function sold()
-    // {
-    //     $posts->users()->attach(Auth()->user()->id);
-    //     return redirect()->back()->with('message','This Image has been listed');
-    // }
 
     public function buyImage($id)
     {

@@ -21,9 +21,7 @@ Route::get('/', function () {
     return view('welcome')->name('welcome');
 });
 
-Auth::routes(['verify'=>true]);
-
-// Email Verification and Password reset
+Auth::routes(['verify'=>true]);  // Email Verification and Password reset
 
 // Followers route
 Route::post('follow/{user}', 'FollowsController@store');
@@ -42,9 +40,6 @@ Route::patch('/p/sellUpdate/{id}', 'PostsController@sellUpdate')->name('post.upd
 Route::get('/p/checkout/{id}', 'PostsController@buyImage')->name('post.buy');
 Route::get('/p/success', 'PostsController@sellSuccess');
 
-// Route::get('/p/sold/{id}', 'PostsController@sold')->name('post.sell');
-
-
 // Profile Controller
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
@@ -54,15 +49,10 @@ Route::get('/profile/{user}/sellList', 'ProfilesController@sellLists')->name('pr
 // Search Controller Home Page
 Route::post('/search', 'UserController@search');
 
-// AboutUs & Lisence Page
+// AboutUs & Lisence Page & Lisence Page
+Route::get('/Explore', 'UserController@explore');
 Route::get('/About-Us', 'UserController@about');
 Route::get('/lisence', 'UserController@lisence');
-
-
-
-
-
-
 
 
 //Admin
@@ -88,7 +78,5 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function ()
     Route::put('admin/ImageList/update/{id}', 'AdminController@updateImage')->name('admin.updateImages');
     Route::get('admin/ImageList', 'AdminController@searchImage')->name('admin.search');
     Route::get('ImageList/{id}', 'AdminController@deleteImage')->name('admin.delete');
-
-
 
 });
