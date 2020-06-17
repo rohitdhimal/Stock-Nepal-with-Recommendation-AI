@@ -54,13 +54,12 @@
         </button>
         <div class="dropdown-container">
             <a href="{{ route('admin.allimage')}}" class="text-decoration-none">All Images</a>
+            <a href="{{ route('category.create')}}" class="text-decoration-none">Category Management</a>
         </div>
-        <div class="dropdown-container">
-            <a href="#" class="text-decoration-none">Categories</a>
-        </div>
+ 
 
-        <a href="#" class="text-decoration-none"> <i class="fas fa-shopping-cart"></i> Purchase</a>
-     </div> -->
+        <a href="{{ route('admin.allsell')}}" class="text-decoration-none"> <i class="fas fa-shopping-cart"></i> Sellings</a>
+     </div>
 
     
     <script>

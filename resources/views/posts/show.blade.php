@@ -15,12 +15,9 @@
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+
                         </a>
                     </div>
                 </div>
@@ -28,7 +25,6 @@
             
             <!-- End Image -->
 
-            <!-- Left bar of infos -->
             <div class="row">
                 <div class="col-6">
                     <div class="card card-shadow">
@@ -56,7 +52,7 @@
 
                     <!-- Delete -->
                         <div class="col-6">
-                            @if(Auth::check() && Auth()->user()->id == $post->user_id)
+            @if(Auth::check() && Auth()->user()->id == $post->user_id)
                                 <button type="button" class="btn btn-danger mr-3" data-toggle="modal" data-target="#exampleModalCenter">
                                     Delete Photo
                                 </button>
@@ -89,6 +85,7 @@
 
                     
             <!-- Buy and Sell -->
+        
             <div class="row mb-4">  
                 <div class="col-12 ml-5">
                     <div class="card shadow">
@@ -109,10 +106,35 @@
                 </div>
             </div>
             <!-- End Buy and Sell -->
-                    @endif
-
+            @endif
 
             
         </div> 
+
+        @Auth
+        <div class="container mt-5">
+            <h2 class="text-center mb-3">Recommended Images For You</h2>
+            <div class="row">
+                @foreach($relate->chunk(5) as $chunk)
+                    @foreach($chunk as $item)
+                        <div class="col-md-3">
+                            <div class="card mb-3" style="width: 200px;">
+                                <a href="/p/{{$item->id}}">
+                                    <img src="{{asset('storage')}}/{{$item->image}}" class="card-img-top" alt="No image" style="width: 200px;"/>
+                                </a>
+                                    <p> <span class="font-weight-bold">Category</span> {{$item->category}} </p>
+                                    <p> <span class="font-weight-bold">Caption</span> {{$item->caption}} </p>
+                               
+                            </div>   
+                        </div>
+                    @endforeach
+                @endforeach  
+                        
+            </div>
+        </div>
+        @endauth
+
+
+            
 
 @endsection

@@ -32,19 +32,10 @@
                 <div class="form-group row">
                     <label for="category" for="inlineFormCustomSelectPref">Category</label>
                         <select id="category" name="category" class="form-control @error('category') is-invalid @enderror" id="category">
-                            <option selected>Choose...</option>
-                            <option>Abstract</option>
-                            <option>Aerial</option>
-                            <option>Archiecture</option>
-                            <option>Black and White</option>
-                            <option>Fashion</option>
-                            <option>Landscape</option>
-                            <option>Macro</option>
-                            <option>Night</option>
-                            <option>Potrait</option>
-                            <option>sports</option>
-                            <option>Weeding</option>
-                            <option>Wildlife</option>
+                            <option selected> Choose...  </option>
+                            @foreach($category as $key=>$value)
+                                <option value="{{$value}}">{{$value}}</option>    
+                            @endforeach
                         </select>
                         @error('category')
                             <span class="invalid-feedback" role="alert">

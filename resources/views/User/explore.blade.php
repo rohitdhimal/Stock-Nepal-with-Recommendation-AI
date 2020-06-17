@@ -17,7 +17,7 @@
                 <button type="button" class="btn btn btn-outline-dark waves-effect mx-2 filter" data-rel="all">All</button>
                 <button type="button" class="btn btn btn-outline-dark waves-effect mx-2 filter" data-rel="Landscape">Landscape</button>
                 <button type="button" class="btn btn btn-outline-dark waves-effect mx-2 filter" data-rel="Potrait">Potrait</button>
-                <button type="button" class="btn btn btn-outline-dark waves-effect mx-2 filter" data-rel="Weeding">Wedding</button>
+                <button type="button" class="btn btn btn-outline-dark waves-effect mx-2 filter" data-rel="Wedding">Wedding</button>
                 <button type="button" class="btn btn btn-outline-dark waves-effect mx-2 filter" data-rel="Abstract">Abstract</button>
 
             </div>

@@ -30,14 +30,16 @@ Route::post('follow/{user}', 'FollowsController@store');
 Route::get('/', 'PostsController@index');
 Route::get('/p/create', 'PostsController@create');
 Route::post('/p', 'PostsController@store');
-Route::get('/p/{post}', 'PostsController@show')->name('profile.delete');
+Route::get('/p/{id}', 'PostsController@show')->name('profile.delete');
 Route::get('/p/delete/{post}', 'PostsController@delete')->name('post.delete');
 Route::get('/p/download/{id}', 'PostsController@download')->name('download');
 
 // Buy and sell image
 Route::get('/p/sell/{id}', 'PostsController@sellImage')->name('post.sell');
 Route::patch('/p/sellUpdate/{id}', 'PostsController@sellUpdate')->name('post.updateSell');
+Route::get('/p/order/{id}', 'PostsController@order')->name('post.order');
 Route::get('/p/checkout/{id}', 'PostsController@buyImage')->name('post.buy');
+Route::get('/p/checkout/download/{id}', 'PostsController@buyDownload')->name('buy.download');
 Route::get('/p/success', 'PostsController@sellSuccess');
 
 // Profile Controller
@@ -58,25 +60,36 @@ Route::get('/lisence', 'UserController@lisence');
 //Admin
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function ()
-{
-    Route::get('/', 'AdminController@index')->name('admin_home');
-    Route::get('/Dashboard', 'AdminController@index')->name('admin.home');
+    {
+        Route::get('/', 'AdminController@index')->name('admin_home');
+        Route::get('/Dashboard', 'AdminController@index')->name('admin.home');
 
-    // Listing in admin pannels
-    Route::get('/AllUserList', 'AdminController@allUser')->name('admin.alluser');
-    Route::get('/ImageList', 'AdminController@allImage')->name('admin.allimage');
+        // Listing in admin pannels
+        Route::get('/AllUserList', 'AdminController@allUser')->name('admin.alluser');
+        Route::get('/ImageList', 'AdminController@allImage')->name('admin.allimage');
+        Route::get('/ImageSellLists', 'AdminController@allSellings')->name('admin.allsell');
 
-    // Search, Delete, Edit User
-    Route::get('admin/AllUserList/edit/{id}', 'AdminController@editUser')->name('admin.editUsers');
-    Route::patch('admin/AllUserList/update/{id}', 'AdminController@updateUser')->name('admin.updateUsers');
-    Route::get('admin/AllUserList', 'AdminController@searchUser')->name('search');
-    Route::get('admin/AllUserList/{id}', 'AdminController@deleteUser')->name('delete');
-    
-    
-    // Search, Delete Edit Image
-    Route::get('admin/ImageList/edit/{id}', 'AdminController@editImage')->name('admin.editImages');
-    Route::put('admin/ImageList/update/{id}', 'AdminController@updateImage')->name('admin.updateImages');
-    Route::get('admin/ImageList', 'AdminController@searchImage')->name('admin.search');
-    Route::get('ImageList/{id}', 'AdminController@deleteImage')->name('admin.delete');
+        // Search, Delete, Edit User
+        Route::get('admin/AllUserList/edit/{id}', 'AdminController@editUser')->name('admin.editUsers');
+        Route::patch('admin/AllUserList/update/{id}', 'AdminController@updateUser')->name('admin.updateUsers');
+        Route::get('admin/AllUserList', 'AdminController@searchUser')->name('search');
+        Route::get('admin/AllUserList/{id}', 'AdminController@deleteUser')->name('user.delete');
+        
+        
+        // Search, Delete Edit Image
+        Route::get('admin/ImageList/edit/{id}', 'AdminController@editImage')->name('admin.editImages');
+        Route::put('admin/ImageList/update/{id}', 'AdminController@updateImage')->name('admin.updateImages');
+        Route::get('admin/ImageList', 'AdminController@searchImage')->name('admin.search');
+        Route::get('ImageList/{id}', 'AdminController@deleteImage')->name('admin.delete');
 
-});
+        // SellImage Listings
+        Route::get('ImageSellImage/{id}', 'AdminController@deleteSell')->name('delete');
+
+        // Deleting a category
+        // Adding image Category
+        Route::resource('/category', 'CategoryController');
+        Route::get('category/delete/{id}', 'CategoryController@deletecat')->name('category.delete');
+
+
+        
+    });

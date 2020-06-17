@@ -7,7 +7,7 @@
         <div class="row mt-5">
             <div class="col-8">           
             <img src="{{ $user->profile->profileImage() }}" class="rounded-circle offset-md-7 offset-lg-7"> <br>
-                <p class="font-weight-normal text-uppercase text-center mt-2">{{ $user->fname}} {{ $user->lname}}</p> <!-- search concat -->
+                <p class="font-weight-normal text-uppercase text-center mt-2">{{ $user->fname}} {{ $user->lname}}</p> <!--concat -->
                 <p class="text-muted text-right"> {{ $postCount }} Posts | {{ $followersCount }} Followers | {{ $followingCount }} Following | {{ $sellCount }} listed for selling     | <i class="fas fa-map-marker-alt"></i> @isset($user->profile->address){{ $user->profile->address}}
                 @endisset</p>
             </div>  
@@ -58,13 +58,16 @@
      @foreach($user->posts as $post)
     <div class="mb-3 pics animation all 2">
         <a href="/p/{{$post->id}}">
-            <img class="img-fluid" src="/storage/{{ $post->image }}" alt="Card image cap">
+            <img class="img-fluid" src="/storage/{{ $post->image2}}" alt="Card image cap">
         </a>
-
     </div>
     @endforeach
 
   <!-- Grid column -->
+
+  <!-- image2 = uploads
+    image = upload
+    -->
 
 
 </div>

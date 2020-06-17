@@ -78,15 +78,19 @@
             },
             onApprove: function(data, actions) {
             // This function captures the funds from the transaction.
+
+
             return actions.order.capture().then(function(details) {
-                // This function shows a transaction success message to your buyer.
-                alert('Transaction completed by ' + details.payer.name.given_name);
+            //     // This function shows a transaction success message to your buyer.
+            // console.log(details);
+            alert('Transaction completed by'+ details.payer.name.given_name);
+            window.location.replace("/p/checkout/download/{{$post->id}}");
             });
+
             }
         }).render('#paypal-button-container');
         
     </script>
 
-    
 </body>
 </html>

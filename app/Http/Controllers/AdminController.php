@@ -5,7 +5,9 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Profile;
+use App\Category;
 use DB;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
@@ -15,9 +17,27 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user, Post $post)
     {
-        return view('admin.home');
+        $totalUserCount = Cache::remember(
+            'count.user.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                return $user->count();
+            });
+        
+        $totalImgCount = Cache::remember(
+            'count.post.' . $post->id,
+            now()->addSeconds(30),
+            function () use ($post) {
+                return $post->count();
+            });
+
+        $post =Post::where('status',1)->get();
+        $sellCount = count($post);    
+
+        return view('admin.home' ,compact('user', 'totalUserCount', 'totalImgCount', 'sellCount' ));
+
     }
 
     /**
@@ -136,7 +156,8 @@ class AdminController extends Controller
     public function editImage($id)
     {
         $posts = Post::findOrFail($id);
-        return view('admin.editImage')->with('posts', $posts);
+        $category = Category::pluck('category','id')->all();
+        return view('admin.editImage', compact('posts','category'));
     }
 
     public function updateImage(Request $request, $id)
@@ -171,7 +192,21 @@ class AdminController extends Controller
         return view('admin.allUsers',compact('users'));
     }
 
+    //  Sell Count
 
+    public function allSellings()
+    {
+        $posts = Post::all();
+        $posts = Post::where('status',1)->get();
+        return view('admin.selllists')->with('posts',$posts);
+    }
+
+    public function deleteSell($id)
+    {
+        $posts = Post::findOrFail($id);
+        $posts->delete();
+        return redirect()->back();
+    }
 
 
 }

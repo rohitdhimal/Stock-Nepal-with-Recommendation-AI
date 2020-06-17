@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->decimal('price')->nullable();
             $table->tinyInteger('status')->nullable();
             $table->string('image');
+            $table->string('image2');
             $table->string('exif')->nullable();
             $table->string('camera')->nullable();
             $table->timestamps();

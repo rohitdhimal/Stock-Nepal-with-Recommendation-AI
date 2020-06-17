@@ -53,11 +53,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    <div class="navbar-nav">
-                    <a href="{{url('/Explore')}}" class="nav-link text-white">Explore</a>
-                    <a href="{{url('/lisence')}}" class="nav-link text-white">Lisence</a>
-                    <a href="{{url('/About-Us')}}" class="nav-link text-white">About</a>
-                </div>
+                        <div class="navbar-nav">
+                            <a href="{{url('/Explore')}}" class="nav-link text-white">Explore</a>
+                            <a href="{{url('/lisence')}}" class="nav-link text-white">Lisence</a>
+                            <a href="{{url('/About-Us')}}" class="nav-link text-white">About</a>
+                        </div>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -108,9 +108,6 @@
         </main>
     </div>
 
-
-
-   
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap-tagsinput.min.js') }}"></script>
 
@@ -137,12 +134,12 @@
             });
         });
 
+        </script>
 
-        // Search Results
-        
         
 
-            </script>
+        </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/404c3fa7f3.js" crossorigin="anonymous"></script>  
 

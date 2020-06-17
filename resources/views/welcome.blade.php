@@ -45,7 +45,7 @@
         @endforeach
     </div>
 
-    <div class="row">
+        <div class="row">
             <div class="col-12 d-flex justify-content-center mt-5 mb-2">
                 {{ $posts->links() }}
             </div>

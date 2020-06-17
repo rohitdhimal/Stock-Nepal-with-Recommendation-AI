@@ -11,15 +11,15 @@
 
         <div class="row main-row mt-5">
             <div class="col col1 text-center ml-3 shadow text-light">
-               <span class="opencart">  <i class="fab fa-opencart mr-3"></i> <span class="text ml-4">0</span> </span>   
-               <div class="low-link1"> Purchases </div>
+               <span class="opencart"> <i class="fab fa-opencart mr-3"></i> <span class="text ml-4">  {{ $sellCount }} </span> </span>   
+               <div class="low-link1"> Sell Listings </div>
             </div>  
             <div class="col col2 ml-3 shadow text-light">
-                <span class="opencart"><i class="fas fa-image"></i></span> <span class="text ml-4">0</span> </span>  
+                <span class="opencart"> <i class="fas fa-image"></i></span> <span class="text ml-4">{{ $totalImgCount }}</span> </span>  
                <div class="low-link2"> Images </div>
             </div>
             <div class="col col3 ml-3 shadow text-light">
-                <span class="opencart"><i class="fas fa-user-ninja"></i></span> <span class="text ml-4">0</span> </span>  
+                <span class="opencart"> <i class="fas fa-user-ninja"></i></span> <span class="text ml-4">{{ $totalUserCount }} </span> </span>  
                <div class="low-link3"> Members </div>
             </div>
             <div class="col col4 ml-3 shadow mr-4 text-light">

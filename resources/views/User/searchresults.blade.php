@@ -40,8 +40,7 @@
                     <div class="mb-3 pics animation all 2">
                         <div id="my-list"></div>
                         <a href="/p/{{$post->id}}" class="text-decoration-none ">
-                            <!-- <p class="text-dark">{{ $post->caption }}</p> -->
-                            <img class="img-fluid hobimg" src="/storage/{{ $post->image }}" alt="Card image cap">
+                            <img class="img-fluid hobimg" src="/storage/{{ $post->image2 }}" alt="Card image cap">
                         </a>
                     </div>
                     @endforeach

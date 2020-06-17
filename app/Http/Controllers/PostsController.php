@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -32,7 +33,9 @@ class PostsController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        
+        $category = Category::pluck('category','id')->all();
+        return view('posts.create', compact('category'));
     }
 
     public function store()
@@ -42,14 +45,13 @@ class PostsController extends Controller
             'category' => 'required',
             'image' => ['required', 'image'],
         ]);
-        
+
         $imagePath = request('image')->store('uploads','public');
         $imagePath2 = request('image')->store('upload','public');
         
         $image = Image::make(public_path("storage/{$imagePath}"));
         $image2 = Image::make(public_path("storage/{$imagePath}"));
-        
-        // $image->insert(public_path('profile/outline.png'));
+        $image2->insert(public_path('/storage/profile/outline.png'), 'bottom-right', 100, 100);
 
         $image->save();
         $image2->save();
@@ -58,16 +60,17 @@ class PostsController extends Controller
             'caption' => $data['caption'],
             'category' => $data['category'],
             'image' => $imagePath,
+            'image2' => $imagePath2,
         ]);
 
         return redirect('/profile/' . auth()->user()->id)->with('message','Image uploaded successfully');
     }
 
-    public function show(Post $post)
+    public function show($id)
     {
-        // $post = Post::all();
-        // return $post;
-        return view('posts.show',compact('post'));
+        $post = Post::findOrFail($id);
+        $relate = Post::where([['id','!=',$id],['category',$post->category]])->get();
+        return view('posts.show',compact('post','relate'));
     }
 
     // Deleting a post from user profile
@@ -100,7 +103,7 @@ class PostsController extends Controller
         $posts->update([
             'price'=>$data['price'],
             'status'=> 1,
-            ]);
+        ]);
 
         return view('posts.success');
     }
@@ -114,6 +117,14 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         return view('posts.buy', compact('post'));
+    }
+
+    // Order
+
+    public function buyDownload($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('posts.download', compact('post'));
     }
 
 }

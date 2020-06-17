@@ -44,7 +44,7 @@
                     <td>{{$row->profile->phoneno}}</td>
                     <td> <a href="{{route('admin.editUsers',$row->id)}}" class="btn btn-primary">Edit</a> </td>
                     <td>    
-                        <a href="{{route('delete',$row->id)}}" class="btn btn-danger">Delete</a>
+                        <a href="{{route('user.delete',$row->id)}}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
 
